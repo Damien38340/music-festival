@@ -1,0 +1,29 @@
+.navbar {
+  background-color: var(--blue);
+  padding: 1rem;
+}
+
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navbar-links li {
+  font-size: 2rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: var(--yellow);
+}
+
+.navbar-links .active {
+  font-weight: bold;
+}

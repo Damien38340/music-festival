@@ -1,17 +1,17 @@
-<h1>This Is Not A Love Song</h1>
-<img ngSrc="/assets/TINALS.jpg" alt="festival-poster" height="444" width="1200">
-<div class="toggle-container">
-
+<div class="hero">
+  <h1>This Is Not A Love Song</h1>
+  <img ngSrc="/assets/TINALS.jpg" alt="festival-poster" height="444" width="1200">
+</div>
   <button class="toggle-btn" (click)="toggleContent()">
     {{ isOpen ? '-' : '+' }}
   </button>
+
   <div class="content" *ngIf="isOpen">
     <p>This Is Not A Love Song festival takes place from Thursday May 30 to Saturday June 1 at Paloma.
       This year, This Is Not A Love Song celebrates its 7th anniversary. 3 days, 5 stages and a program as demanding as
       ever, with 55 international artists and independent music groups to discover at the end of May. TINALS is also all
       about participatory workshops, a unique and daring festival atmosphere and experience.
     </p>
-  </div>
 
 </div>
 

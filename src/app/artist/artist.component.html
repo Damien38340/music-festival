@@ -1,0 +1,12 @@
+<div class="artist-card">
+  <h2>{{ artist?.name }}</h2>
+  <img ngSrc="{{ artist?.picture}}" alt="{{ artist?.name }}" [width]="500" [height]="800">
+
+  <button (click)="toggleBio()">
+    {{ showBio ? 'Hide Bio' : 'Show Bio' }}
+  </button>
+
+  <div class="bio" *ngIf="showBio">
+    <p>{{ artist?.bio }}</p>
+  </div>
+</div>
