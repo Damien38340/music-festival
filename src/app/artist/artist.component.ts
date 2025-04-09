@@ -1,11 +1,16 @@
 import {Component, Input} from '@angular/core';
-import {NgIf, NgOptimizedImage} from '@angular/common';
+import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
+import {RouterLink} from '@angular/router';
+import {ArtistService} from './artist.service';
+import {Artist} from './artist.model';
 
 @Component({
   selector: 'app-artist',
   imports: [
     NgIf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterLink,
+    NgClass
   ],
   templateUrl: './artist.component.html',
   standalone: true,
@@ -14,16 +19,25 @@ import {NgIf, NgOptimizedImage} from '@angular/common';
 
 export class ArtistComponent {
 
+  constructor(private artistService: ArtistService) {
+  }
+
   @Input() artist: Artist | undefined;
   showBio: boolean = false;
+  showSingleArtist: boolean = false;
+  @Input()
+  set id (artistId: number){
+    this.showSingleArtist = true;
+    this.artist = this.artistService.getArtist(artistId);
+  }
 
   toggleBio() {
     this.showBio = !this.showBio;
   }
+
+  toggleSingleArtist() {
+    this.showSingleArtist = !this.showSingleArtist;
+  }
+
 }
 
-interface Artist {
-  name: string;
-  bio: string;
-  picture: string;
-}
