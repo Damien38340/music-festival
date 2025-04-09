@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
-import {NgIf, NgOptimizedImage} from '@angular/common';
+import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-home',
   imports: [
     NgOptimizedImage,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './home.component.html',
   standalone: true,

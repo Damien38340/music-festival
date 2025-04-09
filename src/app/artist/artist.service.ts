@@ -52,21 +52,18 @@ export class ArtistService {
     return this.artists;
   }
 
-  getArtist(idArtist: number | string):Artist {
+  getArtist(idArtist: number | string): Artist {
     const id = typeof idArtist === 'string' ? parseInt(idArtist) : idArtist;
     return <Artist>this.artists.find((artist) => artist.id === id);
   }
 
-  deleteArtist(id: number) {
-    return this.artists.splice(id, 1);
+  deleteArtist(id: number | undefined) {
+    const index = this.artists.findIndex(artist => artist.id === id);
+    return this.artists.splice(index, 1);
   }
 
-  updateArtist(id: number) {
-    return this.artists[id];
-  }
-
-  addArtist(id: number) {
-    return this.artists[id];
+  addArtist(artist: Artist) {
+    this.artists.push(artist);
   }
 
 }

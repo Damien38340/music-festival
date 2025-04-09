@@ -3,12 +3,14 @@ import {NgForOf} from '@angular/common';
 import {ArtistComponent} from '../artist/artist.component';
 import {ArtistService} from '../artist/artist.service';
 import {Artist} from '../artist/artist.model';
+import {FormComponent} from '../form/form.component';
 
 @Component({
   selector: 'app-artist-list',
   imports: [
     NgForOf,
     ArtistComponent,
+    FormComponent,
   ],
   templateUrl: './artist-list.component.html',
   standalone: true,
@@ -23,6 +25,10 @@ export class ArtistListComponent implements OnInit {
 
   ngOnInit() {
     this.artists = this.artistService.getAllArtists();
+  }
+
+  addArtist(artist: Artist) {
+    this.artistService.addArtist(artist);
   }
 
 }

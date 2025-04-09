@@ -24,4 +24,17 @@
   width: 80%;
   max-width: 600px;
   margin: auto;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.reduce-image-size {
+  width: 800px;
+  height: auto;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+img {
+  transition: all 0.3s ease-in-out;
 }

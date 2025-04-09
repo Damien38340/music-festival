@@ -1,6 +1,6 @@
 <div class="hero">
   <h1>This Is Not A Love Song</h1>
-  <img ngSrc="/assets/TINALS.jpg" alt="festival-poster" height="444" width="1200">
+  <img ngSrc="/assets/TINALS.jpg" alt="festival-poster" height="444" width="1200" [ngClass]="{'reduce-image-size': isOpen}">
 </div>
   <button class="toggle-btn" (click)="toggleContent()">
     {{ isOpen ? '-' : '+' }}

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Directive, Input, output} from '@angular/core';
 import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {ArtistService} from './artist.service';
@@ -25,10 +25,15 @@ export class ArtistComponent {
   @Input() artist: Artist | undefined;
   showBio: boolean = false;
   showSingleArtist: boolean = false;
+
   @Input()
-  set id (artistId: number){
+  set id(artistId: number) {
     this.showSingleArtist = true;
     this.artist = this.artistService.getArtist(artistId);
+  }
+
+  deleteArtist(id: number | undefined) {
+    this.artistService.deleteArtist(id);
   }
 
   toggleBio() {
