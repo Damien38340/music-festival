@@ -2,17 +2,17 @@
   <div class="artist-card">
     <a [routerLink]="[artist?.id]">
       <h2>{{ artist?.name }} </h2>
-      <img ngSrc="{{ artist?.picture}}" alt="{{ artist?.name }}" [width]="500" [height]="800">
+      <img ngSrc="{{ artist?.photo}}" alt="{{ artist?.name }}" [width]="500" [height]="800">
     </a>
-    <button (click)="toggleBio()">
-      {{ showBio ? 'Hide Bio' : 'Show Bio' }}
-    </button>
+<!--    <button (click)="toggleBio()">-->
+<!--      {{ showBio ? 'Hide Bio' : 'Show Bio' }}-->
+<!--    </button>-->
     <button class="delete-button" (click)="deleteArtist(artist?.id)">
       Delete Artist
     </button>
-    <div class="bio" *ngIf="showBio">
-      <p>{{ artist?.bio }}</p>
-    </div>
+<!--    <div class="bio" *ngIf="showBio">-->
+<!--      <p>{{ artist?.bio }}</p>-->
+<!--    </div>-->
   </div>
   <button class="back-button" *ngIf="showSingleArtist" [routerLink]="['/artists']" (click)="toggleSingleArtist()">
     Back to All Artists

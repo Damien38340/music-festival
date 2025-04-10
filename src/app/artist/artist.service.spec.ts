@@ -14,7 +14,7 @@ describe('ArtistService', () => {
     expect(service).toBeTruthy();
   });
   it('should delete artist', () => {
-    service.deleteArtist(1);
+    service.deleteArtist('1');
     expect(service.artists.length).toBe(5);
   });
 });

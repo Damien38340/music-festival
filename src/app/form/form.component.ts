@@ -14,9 +14,9 @@ export class FormComponent {
 
   artistAdd = output<Artist>();
   artistForm = new FormGroup({
-    id: new FormControl(''),
+    // id: new FormControl(''),
     name: new FormControl(''),
-    bio: new FormControl(''),
+    // bio: new FormControl(''),
     picture: new FormControl(''),
   })
 
@@ -25,13 +25,19 @@ export class FormComponent {
 
   onSubmit() {
     const artist: Artist = {
-      id: Number(this.artistForm.get('id')?.value || ''),
+      // id: this.artistForm.get('id')?.value || '',
       name: this.artistForm.get('name')?.value || '',
-      bio: this.artistForm.get('bio')?.value || '',
-      picture: this.artistForm.get('picture')?.value || ''
+      // bio: this.artistForm.get('bio')?.value || '',
+      photo: this.artistForm.get('picture')?.value || ''
     };
 
     this.artistAdd.emit(artist);
+
+    this.artistService.addArtist(artist).subscribe(
+      () => {
+        this.artistForm.reset();
+      }
+    );
 
 
     //

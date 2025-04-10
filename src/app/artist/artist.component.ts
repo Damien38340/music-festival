@@ -3,7 +3,6 @@ import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {ArtistService} from './artist.service';
 import {Artist} from './artist.model';
-import {WebserviceService} from '../services/webservice.service';
 
 @Component({
   selector: 'app-artist',
@@ -20,8 +19,6 @@ import {WebserviceService} from '../services/webservice.service';
 
 export class ArtistComponent {
 
-  private webservice = inject(WebserviceService)
-
   constructor(private artistService: ArtistService) {
   }
 
@@ -35,9 +32,8 @@ export class ArtistComponent {
     this.artist = this.artistService.getArtist(artistId);
   }
 
-  deleteArtist(id: number | undefined) {
-    // this.artistService.deleteArtist(id);
-    this.webservice.
+  deleteArtist(id: string | undefined) {
+    this.artistService.deleteArtist(id).subscribe();
   }
 
   toggleBio() {

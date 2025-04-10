@@ -24,17 +24,17 @@ describe('FormComponent', () => {
   it('should emit artist on submit', () => {
 
     component.artistForm.setValue({
-      id: '42',
+      // id: '42',
       name: 'Ron Gallo',
-      bio: 'Awesome bio',
+      // bio: 'Awesome bio',
       picture: 'assets/ron-gallo.jpg'
     });
 
     const testArtist: Artist = {
-      id: Number('42'),
+      // id: '42',
       name: 'Ron Gallo',
-      bio: 'Awesome bio',
-      picture: 'assets/ron-gallo.jpg'
+      // bio: 'Awesome bio',
+      photo: 'assets/ron-gallo.jpg'
     };
 
     spyOn(component.artistAdd, 'emit');

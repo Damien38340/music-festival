@@ -29,10 +29,10 @@ describe('ArtistComponent', () => {
     component = fixture.componentInstance;
 
     component.artist = {
-      id: 1,
+      // id: 1,
       name: 'Test Artist',
-      bio: 'A great artist',
-      picture: 'assets/test-artist.jpg'
+      // bio: 'A great artist',
+      photo: 'assets/test-artist.jpg'
     };
 
     fixture.detectChanges();
@@ -44,8 +44,8 @@ describe('ArtistComponent', () => {
 
   it('should display the artist in the HTML', ()=> {
     expect(component.artist!.name).toBe('Test Artist');
-    expect(component.artist!.bio).toBe('A great artist');
-    expect(component.artist!.picture).toBe('assets/test-artist.jpg');
+    // expect(component.artist!.bio).toBe('A great artist');
+    expect(component.artist!.photo).toBe('assets/test-artist.jpg');
   });
   it('should render artist name in an h2 tag', () => {
     const compiled = fixture.nativeElement as HTMLElement;

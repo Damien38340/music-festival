@@ -22,10 +22,26 @@ export class WebserviceService {
   }
 
   getAllArtists(): Observable<Artist[]> {
-    return this.http.get<Artist[]>((`${this.host}/artists`));
+    return this.http.get<Artist[]>((`${this.host}/artists`),
+      {headers: this.getHeaders()});
   }
 
+  getArtist(id: number | string): Observable<Artist> {
+    return this.http.get<Artist>(`${this.host}/artists/${id}`,
+      {headers: this.getHeaders()});
+  }
 
+  createArtist(artist: Artist): Observable<Artist> {
+    return this.http.post<Artist>(`${this.host}/artists`,
+      artist,
+      {
+        headers: this.getHeaders()
+      });
+  }
 
+  deleteArtist(id: string | undefined): Observable<Artist> {
+    return this.http.delete<Artist>(`${this.host}/artists/${id}`,
+      {headers: this.getHeaders()});
+  }
 
 }

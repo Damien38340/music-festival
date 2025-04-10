@@ -1,11 +1,11 @@
 <form [formGroup]="artistForm" (ngSubmit)="onSubmit()">
   <h2>Add New Artist</h2>
-  <label for="id">Id: </label>
-  <input id="id" type="text"formControlName="id">
+<!--  <label for="id">Id: </label>-->
+<!--  <input id="id" type="text"formControlName="id">-->
   <label for="name">Name: </label>
   <input id="name" type="text" formControlName="name">
-  <label for="bio">Bio: </label>
-  <input id="bio" type="text" formControlName="bio">
+<!--  <label for="bio">Bio: </label>-->
+<!--  <input id="bio" type="text" formControlName="bio">-->
   <label for="picture">Picture: </label>
   <input id="picture" type="text" formControlName="picture">
   <button type="submit" [disabled]="!artistForm.valid">Submit</button>
