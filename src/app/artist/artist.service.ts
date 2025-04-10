@@ -58,9 +58,10 @@ export class ArtistService {
     return this.webservice.getAllArtists();
   }
 
-  getArtist(idArtist: number | string): Artist {
-    const id = typeof idArtist === 'string' ? idArtist : idArtist;
-    return <Artist>this.artists.find((artist) => artist.id === id);
+  getArtist(idArtist: number | string): Observable<Artist> {
+    // const id = typeof idArtist === 'string' ? idArtist : idArtist;
+    // return <Artist>this.artists.find((artist) => artist.id === id);
+    return this.webservice.getArtist(idArtist);
   }
 
   deleteArtist(id: string | undefined) {

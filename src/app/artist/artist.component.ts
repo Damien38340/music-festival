@@ -29,7 +29,7 @@ export class ArtistComponent {
   @Input()
   set id(artistId: number) {
     this.showSingleArtist = true;
-    this.artist = this.artistService.getArtist(artistId);
+    this.artistService.getArtist(artistId).subscribe(artist => this.artist = artist);
   }
 
   deleteArtist(id: string | undefined) {
