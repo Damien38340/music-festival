@@ -1,10 +1,23 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {ActivatedRoute} from '@angular/router';
+import {of} from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              get: () => '1'
+            }
+          },
+          paramMap: of({get: () => '1'})
+        }
+      ]
     }).compileComponents();
   });
 
@@ -17,13 +30,6 @@ describe('AppComponent', () => {
   it(`should have the 'music-festival' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('music-festival');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, music-festival');
+    expect(app.title).toEqual('TINALS music festival');
   });
 });

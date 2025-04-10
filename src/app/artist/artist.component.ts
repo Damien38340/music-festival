@@ -1,8 +1,9 @@
-import {Component, Directive, Input, output} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {NgClass, NgIf, NgOptimizedImage} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {ArtistService} from './artist.service';
 import {Artist} from './artist.model';
+import {WebserviceService} from '../services/webservice.service';
 
 @Component({
   selector: 'app-artist',
@@ -19,6 +20,8 @@ import {Artist} from './artist.model';
 
 export class ArtistComponent {
 
+  private webservice = inject(WebserviceService)
+
   constructor(private artistService: ArtistService) {
   }
 
@@ -33,7 +36,8 @@ export class ArtistComponent {
   }
 
   deleteArtist(id: number | undefined) {
-    this.artistService.deleteArtist(id);
+    // this.artistService.deleteArtist(id);
+    this.webservice.
   }
 
   toggleBio() {

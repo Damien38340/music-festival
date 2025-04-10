@@ -25,7 +25,7 @@ export class FormComponent {
 
   onSubmit() {
     const artist: Artist = {
-      id: this.artistForm.get('id'.toString())?.value || '',
+      id: Number(this.artistForm.get('id')?.value || ''),
       name: this.artistForm.get('name')?.value || '',
       bio: this.artistForm.get('bio')?.value || '',
       picture: this.artistForm.get('picture')?.value || ''
