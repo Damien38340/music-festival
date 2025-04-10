@@ -2,6 +2,8 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ArtistListComponent} from './artist-list.component';
 import {ActivatedRoute} from '@angular/router';
 import {of} from 'rxjs';
+import {provideHttpClient, withFetch} from '@angular/common/http';
+import {provideHttpClientTesting} from '@angular/common/http/testing';
 
 describe('ArtistListComponent', () => {
   let component: ArtistListComponent;
@@ -11,6 +13,8 @@ describe('ArtistListComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ArtistListComponent],
       providers: [
+        provideHttpClient(withFetch()),
+        provideHttpClientTesting(),
         {
           provide: ActivatedRoute,
           useValue: {
@@ -35,12 +39,12 @@ describe('ArtistListComponent', () => {
   });
   it('should initialize the artist list with default artists', () => {
     expect(component.artists.length).toBeGreaterThan(0);
-    expect(component.artists[1].name).toBe('Courtney Barnett');
+    expect(component.artists[4].name).toBe('King Gizzard And The Lizard Wizard');
     expect(component.artists.length).toBe(6);
 
     expect(component.artists).toEqual(
       jasmine.arrayContaining([
-        jasmine.objectContaining({name: 'Kurt Vile'}),
+        jasmine.objectContaining({name: 'Ed Sheeran'}),
         jasmine.objectContaining({id: 1}),
         jasmine.objectContaining({
           id: jasmine.any(Number),

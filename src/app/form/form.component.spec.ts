@@ -2,6 +2,8 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {FormComponent} from './form.component';
 import {Artist} from '../artist/artist.model';
+import {provideHttpClient, withFetch} from '@angular/common/http';
+import {provideHttpClientTesting} from '@angular/common/http/testing';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -10,6 +12,10 @@ describe('FormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormComponent],
+      providers: [
+        provideHttpClient(withFetch()),
+        provideHttpClientTesting()
+      ]
     })
       .compileComponents();
 
@@ -24,14 +30,14 @@ describe('FormComponent', () => {
   it('should emit artist on submit', () => {
 
     component.artistForm.setValue({
-      // id: '42',
+      id: '42',
       name: 'Ron Gallo',
       // bio: 'Awesome bio',
       picture: 'assets/ron-gallo.jpg'
     });
 
     const testArtist: Artist = {
-      // id: '42',
+      id: '42',
       name: 'Ron Gallo',
       // bio: 'Awesome bio',
       photo: 'assets/ron-gallo.jpg'
